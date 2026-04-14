@@ -11,8 +11,6 @@ void shell_loop(char** env)
 	char* input = NULL;
 	size_t input_size = 0;
 
-	char** args;
-
 	while (1)
 	{
 		printf("#cisfun$ ");
@@ -32,4 +30,6 @@ int main (int ac, char** av, char** env)
 	(void)av;
 
 	shell_loop(env);
+
+	return (0);
 }
