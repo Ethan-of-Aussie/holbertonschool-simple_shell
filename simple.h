@@ -3,5 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#define MAX_INPUT 1024
 void shell_loop(char** env);
+char** parse_input(char* input);
 #endif

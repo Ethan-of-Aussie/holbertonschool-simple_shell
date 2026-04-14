@@ -16,7 +16,6 @@ void shell_loop(char** env)
               break;
         }
         printf("./shell: %s", input);
-	args = parse_input(input);
-	}
+        }
 free(input);
 }
