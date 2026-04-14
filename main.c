@@ -6,24 +6,7 @@
 // if no executable found print error message
 // handle EOF
 //execve pass environ to it
-void shell_loop(char** env)
-{
-	char* input = NULL;
-	size_t input_size = 0;
 
-	while (1)
-	{
-		printf("#cisfun$ ");
-		fflush(stdout);
-		if (getline(&input, &input_size, stdin) == -1)
-	{
-	      printf("\n");
-	      break;
-	}
-	printf("./shell: %s", input);
-	}
-free(input);
-}
 int main (int ac, char** av, char** env)
 {
 	(void)ac;
