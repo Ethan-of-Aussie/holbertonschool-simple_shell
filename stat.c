@@ -20,7 +20,7 @@ int main(int ac, char **av)
   i = 1;
   while (av[i])
 {
-  printf("%s:". av[i]);
+  printf("%s:", av[i]);
   if (stat(av[i], &st) == 0)
 {
   printf(" FOUND\n");
