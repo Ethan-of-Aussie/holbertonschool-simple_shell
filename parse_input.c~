@@ -1,3 +1,0 @@
-#include "simple.h"
-
-char** parse_input(char* input)
