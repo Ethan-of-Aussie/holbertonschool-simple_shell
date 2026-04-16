@@ -12,7 +12,7 @@ int main(void)
 
   printf("Before execve\n");
 
-  if (execve(argv[0], atgv, NULL == -1)
+  if (execve(argv[0], argv, NULL) == -1)
   {
     perror("Error:");
   }
