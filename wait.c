@@ -18,7 +18,7 @@ int main(void)
   perror("Error:");
   return (1);
 }
-else
+if (child_pid == 0)
 {
   printf("Wait for me, wait for me\n");
   sleep(3);
