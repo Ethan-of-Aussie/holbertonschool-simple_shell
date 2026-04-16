@@ -9,4 +9,9 @@
 #define MAX_INPUT 1024
 void shell_loop(char** env);
 char** parse_input(char* input);
+int fork_main(void);
+int wait_main(void);
+int exec_main(void);
+int error();
+void execute_command(char **args, char **env);
 #endif
