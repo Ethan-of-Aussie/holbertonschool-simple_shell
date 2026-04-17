@@ -6,7 +6,7 @@ void shell_loop(char** env)
         size_t input_size = 0;
 	char **args;
 	int i;
-        
+
 	while (1)
         {
                 printf("#cisfun$ ");
@@ -21,6 +21,8 @@ void shell_loop(char** env)
 		args = parse_input(input);
 		if (!args || !args[0])
 		{
+			if (args)
+				free(args);
 			continue;
 		}
 
