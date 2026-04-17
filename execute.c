@@ -2,10 +2,12 @@
 
 void execute_command(char **args, char **env)
 {
-	pid_t pid = fork();
+	pid_t pid;
 
 	if (_builtin(args, env))
 		return;
+	pid = fork();
+
 	if (pid == -1)
 	{
 		perror("fork");

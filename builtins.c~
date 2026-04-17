@@ -1,3 +1,0 @@
-#include "simple.h"
-
-int _builtin(char **args, char **env, char *intial_dir)
