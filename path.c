@@ -5,9 +5,7 @@ char *_path(char *cmd)
 	char *path = getenv("PATH");
 	char *copy = strdup(path);
 	
-	access(X_OK, copy);
+	access(copy, X_OK);
 
-	stat();
-
-	return;
+	return (NULL);
 }
