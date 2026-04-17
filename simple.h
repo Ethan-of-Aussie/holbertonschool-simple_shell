@@ -14,4 +14,5 @@ int wait_main(void);
 int exec_main(void);
 int error();
 void execute_command(char **args, char **env);
+char *_path(char *cmd);
 #endif
