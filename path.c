@@ -1,6 +1,11 @@
-#include "siple.h"
+#include "simple.h"
 
-void _path()
+char *_path(char *cmd)
 {
+	char *path = getenv("PATH");
+	char *copy = strdup(path);
+	
+	access(copy, X_OK);
 
+	return (NULL);
 }
