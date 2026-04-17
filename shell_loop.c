@@ -18,7 +18,9 @@ void shell_loop(char** env)
                 
 		if (getline(&input, &input_size, stdin) == -1)
 		{
-			printf("\n");
+		/**	
+		 * printf("\n");
+		 */
 			break;
 		}
 		
