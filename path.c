@@ -1,13 +1,21 @@
 #include "simple.h"
+/**
+getenv()
+stat()
+access()
+strdup()
 
+ */
 char *_path(char *cmd)
 {
-/**Previous code might be used for next task	
- * char *path = getenv("PATH");
- * char *copy = strdup(path);
- * access(copy, X_OK);
- * return (NULL);
- */
+	char *path = getenv("PATH");
+	char *copy = strdup(path);
+
+	if (!path)
+		return (NULL);
+	if (!copy)
+		return (NULL);
+
 	if (!cmd)
 	{
 		return (NULL);
