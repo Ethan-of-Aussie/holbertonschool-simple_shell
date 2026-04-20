@@ -17,7 +17,10 @@ void shell_loop(char **env)
 
 		fflush(stdout);
 		if (getline(&input, &input_size, stdin) == -1)
-			break;
+		{
+			free(input);
+			return;
+		}
 
 		args = parse_input(input);
 		if (!args || !args[0])
@@ -26,6 +29,13 @@ void shell_loop(char **env)
 				free(args);
 			continue;
 		}
+		if (_builtin(args, env))
+		{
+			free(input);
+			free_tok(args);
+			exit(0);
+		}
+
 		execute_command(args, env);
 
 		for (i = 0; args[i]; i++)
