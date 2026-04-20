@@ -27,28 +27,28 @@ int execute_command(char **args, char **env, int line)
 	if (pid == 0)
 	{
 		/**if (args[0][0] == '/' || args [0][0] == '.')
-		{
-			execve(args[0], args, env);
-			fprintf(stderr, "./hsh: %d: %s: not found\n", line, args[0]);
-			exit(127);
-		}
+		*{
+		*	execve(args[0], args, env);
+		*	fprintf(stderr, "./hsh: %d: %s: not found\n", line, args[0]);
+		*	exit(127);
+		*}
 		*/
 
 		pathing = _path(args[0]);
-		if (!pathing)
+		if (pathing)
 		{
-			fprintf(stderr, "./hsh: %d: %s: not found\n", line, args[0]);
-			exit(127);
+			/**fprintf(stderr, "./hsh: %d: %s: not found\n", line, args[0]);
+			* exit(127);
+			*/
+
+			execve(pathing, args, env);
+			free(pathing);
 		}
-			
-		execve(pathing, args, env);
-		free(pathing);
 		
 		fprintf(stderr, "./hsh: %d: %s: not found\n", line,  args[0]);
 		exit(127);
 	}
-	else
-	{
+
 		waitpid(pid, &status, 0);
 
 		if (WIFEXITED(status))
@@ -57,5 +57,4 @@ int execute_command(char **args, char **env, int line)
 		}
 
 		return (1);
-	}
 }
