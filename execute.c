@@ -31,7 +31,7 @@ void execute_command(char **args, char **env, int line)
 			execve(pathing, args, env);
 			free(pathing);
 		}
-		fprintf(stderr, "./hsh: %d %s: not found\n", line,  args[0]);
+		fprintf(stderr, "./hsh: %d: %s: not found\n", line,  args[0]);
 		exit(127);
 	}
 	else
