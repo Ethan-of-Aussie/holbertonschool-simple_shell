@@ -1,15 +1,12 @@
 #include "simple.h"
-/** 
- * prompt user, loop till user input, cmd ends wit newline
- * prompt displays everytime after execution
- * cmd lines simple
- * cmd lines made of one word
- * if no executable found print error message
- * handle EOF
- * execve pass environ to it
+/**
+ *main - Entry of the shell
+ *@ac: Argument count
+ *@av: Argumetn vector
+ *@env: The environment
+ *Return: always 0
  */
-
-int main (int ac, char** av, char** env)
+int main(int ac, char **av, char **env)
 {
 	(void)ac;
 	(void)av;

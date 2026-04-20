@@ -7,12 +7,12 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #define MAX_INPUT 1024
-void shell_loop(char** env);
-char** parse_input(char* input);
-int fork_main(void);
-int wait_main(void);
-int exec_main(void);
-int error();
+#define MAX_LINE_SIZE 1024
+void shell_loop(char **env);
+char **parse_input(char *input);
 void execute_command(char **args, char **env);
+int _builtin(char **args, char **env);
 char *_path(char *cmd);
+void malloc_error(void);
+void free_tok(char **toks);
 #endif
