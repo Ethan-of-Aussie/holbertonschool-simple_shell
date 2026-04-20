@@ -1,0 +1,9 @@
+#include "simple.h"
+/**
+ *helper functions to make things more simple
+ */
+void malloc_error(void)
+{
+	perror("Malloc");
+	exit(EXIT_FAILURE);
+}
