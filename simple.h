@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
+#include <errno.h>
 #define MAX_INPUT 1024
 #define MAX_LINE_SIZE 1024
 int shell_loop(char **env);
