@@ -51,6 +51,6 @@ int execute_command(char **args, char **env, int line)
 			return (WEXITSTATUS(status));
 		}
 
-		return (1);
+		return (127);
 	}
 }
