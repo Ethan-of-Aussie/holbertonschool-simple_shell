@@ -11,6 +11,7 @@ int _builtin(char **args, char **env)
 
 	if (strcmp(args[0], "exit") == 0)
 	{
+		free_tok(args);
 		exit(0);
 	}
 

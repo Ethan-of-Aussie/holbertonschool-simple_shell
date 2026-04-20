@@ -14,4 +14,5 @@ void execute_command(char **args, char **env);
 int _builtin(char **args, char **env);
 char *_path(char *cmd);
 void malloc_error(void);
+void free_tok(char **toks);
 #endif
