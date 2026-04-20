@@ -7,7 +7,6 @@ char *_path(char *cmd)
 	char *copy = strdup(path);
 	char *dir = strtok(copy, ":");
 	char full[MAX_LINE_SIZE];
-	struct stat buffer; /** from #include <sys/stat.h> */
 
 	if (!path)
 		return (NULL);
