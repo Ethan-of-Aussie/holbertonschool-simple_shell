@@ -20,7 +20,7 @@ int shell_loop(char **env)
 		if (getline(&input, &input_size, stdin) == -1)
 		{
 			free(input);
-			return;
+			return (status);
 		}
 
 		line++;
