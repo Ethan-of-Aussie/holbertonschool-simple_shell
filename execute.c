@@ -4,24 +4,24 @@
  *@args: Arguments representing pathing and commands
  *@env: The environment
  */
-void execute_command(char **args, char **env, int line)
+int execute_command(char **args, char **env, int line)
 {
 	pid_t pid;
 	char *pathing;
-	int status;
+	int status = 0;
 
 	if (!args || !args[0])
 	{
-		return;
+		return (0);
 	}
 	if (_builtin(args, env))
-	  return;
+	  return (0);
 	pid = fork();
 
 	if (pid == -1)
 	{
 		perror("fork");
-		return;
+		return (1);
 	}
 
 	if (pid == 0)
@@ -38,5 +38,6 @@ void execute_command(char **args, char **env, int line)
 	else
 	{
 		wait(&status);
+		return (WEXITSTATUS(status));
 	}
 }
