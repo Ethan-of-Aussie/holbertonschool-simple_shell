@@ -1,5 +1,9 @@
 #include "simple.h"
-
+/**
+ *execute_command - Command execution through the shell
+ *@args: Arguments representing pathing and commands
+ *@env: The environment 
+ */
 void execute_command(char **args, char **env)
 {
 	pid_t pid;

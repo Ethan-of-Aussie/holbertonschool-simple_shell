@@ -1,5 +1,8 @@
 #include "simple.h"
-
+/**
+ *shell_loop - Runs the main loof of the shell
+ *env: The environment
+ */
 void shell_loop(char** env)
 {
         char* input = NULL;

@@ -1,5 +1,10 @@
 #include "simple.h"
-
+/**
+ *_builtin - Checks if the string is a built-in executable
+ *@args: Representing commands
+ *@env: The environment
+ *Return: 0 if not found or 1 if found and to continue the shell_loop
+ */
 int _builtin(char **args, char **env)
 {
 	int i;

@@ -1,5 +1,11 @@
 #include "simple.h"
-
+/**
+ *parse_input - Splits a line of input into array of tokens
+ *@input: The input string entered by the user
+ *
+ *Return: A NULL-terminated array of strings containing the tokens,
+ *or NULL on failure
+ */
 char** parse_input(char* input)
 {
 	size_t buf_size = MAX_INPUT;
