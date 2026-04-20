@@ -1,10 +1,5 @@
 #include "simple.h"
 /**
-getenv()
-stat()
-access()
-strdup()
-use snprintf() not sprintf()
  */
 char *_path(char *cmd)
 {
@@ -21,12 +16,20 @@ char *_path(char *cmd)
 	if (!cmd)
 		return (NULL);
 	if (access(cmd, X_OK) == 0)
+	{
+		free(copy);
 		return (strdup(cmd));
-
+	}
 	while (dir)
-	  {
-	    
-	  }
+	{
+		snprintf(full, sizeof(full), "%s/%s", dir, cmd);
+	if (access(full, X_OK) == 0)
+		{
+			free(copy);
+			return (strdup(full));
+		}
+	dir = strtok(NULL, ":");
+	}
 	free(copy);
 	return (NULL);
 }
