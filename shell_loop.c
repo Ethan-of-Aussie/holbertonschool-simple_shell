@@ -3,13 +3,13 @@
  *shell_loop - Runs the main loof of the shell
  *@env: The environment
  */
-void shell_loop(char **env)
+int shell_loop(char **env)
 {
 	char *input = NULL;
 	size_t input_size = 0;
 	char **args;
 	int i;
-	int line = 0;
+	int line = 0, status = 0;
 
 	while (1)
 	{
@@ -39,11 +39,12 @@ void shell_loop(char **env)
 			exit(0);
 		}
 
-		execute_command(args, env, line);
+		status = execute_command(args, env, line);
 
 		for (i = 0; args[i]; i++)
 			free(args[i]);
 		free(args);
 	}
 free(input);
+return (status);
 }
