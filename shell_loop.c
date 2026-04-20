@@ -36,7 +36,7 @@ int shell_loop(char **env)
 		{
 			free(input);
 			free_tok(args);
-			exit(0);
+			exit(status);
 		}
 
 		status = execute_command(args, env, line);
