@@ -10,7 +10,7 @@
 #define MAX_LINE_SIZE 1024
 void shell_loop(char **env);
 char **parse_input(char *input);
-void execute_command(char **args, char **env);
+void execute_command(char **args, char **env, int line);
 int _builtin(char **args, char **env);
 char *_path(char *cmd);
 void malloc_error(void);
