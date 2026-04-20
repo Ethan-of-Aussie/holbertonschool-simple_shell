@@ -9,21 +9,19 @@
 char *_path(char *cmd)
 {
 	char *path = getenv("PATH");
-	char *copy = strdup(path);
-	char *dir = strtok(copy, ":");
+	char *copy, *dir;
 	char full[MAX_LINE_SIZE];
 
-	if (!path)
-		return (NULL);
-	if (!copy)
-		return (NULL);
 	if (!cmd)
 		return (NULL);
 	if (access(cmd, X_OK) == 0)
-	{
-		free(copy);
 		return (strdup(cmd));
-	}
+	if (!path)
+		return (NULL);
+	copy = strdup(path);
+	if (!copy)
+		return (NULL);
+	dir = strtok(copy, ":");
 	while (dir)
 	{
 		snprintf(full, sizeof(full), "%s/%s", dir, cmd);
