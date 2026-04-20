@@ -49,13 +49,13 @@ int execute_command(char **args, char **env, int line)
 	}
 	else
 	{
-		wait(&status);
+		waitpid(pid, &status, 0);
 
 		if (WIFEXITED(status))
 		{
 			return (WEXITSTATUS(status));
 		}
 
-		return (127);
+		return (1);
 	}
 }
