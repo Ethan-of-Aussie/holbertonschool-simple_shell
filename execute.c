@@ -8,6 +8,7 @@ void execute_command(char **args, char **env, int line)
 {
 	pid_t pid;
 	char *pathing;
+	int status;
 
 	if (!args || !args[0])
 	{
@@ -36,6 +37,6 @@ void execute_command(char **args, char **env, int line)
 	}
 	else
 	{
-		wait(NULL);
+		wait(&status);
 	}
 }
