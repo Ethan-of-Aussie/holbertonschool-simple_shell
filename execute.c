@@ -29,6 +29,8 @@ int execute_command(char **args, char **env, int line)
 		if (args[0][0] == '/' || args [0][0] == '.')
 		{
 			execve(args[0], args, env);
+			fprintf(stderr, "./hsh: %d: %s: not found\n", line, args[0]);
+			exit(127);
 		}
 
 		pathing = _path(args[0]);
@@ -49,6 +51,6 @@ int execute_command(char **args, char **env, int line)
 			return (WEXITSTATUS(status));
 		}
 
-		return (128);
+		return (1);
 	}
 }
