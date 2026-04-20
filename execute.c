@@ -26,6 +26,11 @@ int execute_command(char **args, char **env, int line)
 
 	if (pid == 0)
 	{
+		if (args[0][0] == '/' || args [0][0] == '.')
+		{
+			execve(args[0], args, env);
+		}
+
 		pathing = _path(args[0]);
 		if (pathing)
 		{
@@ -38,6 +43,12 @@ int execute_command(char **args, char **env, int line)
 	else
 	{
 		waitpid(pid, &status, 0);
-		return (WEXITSTATUS(status));
+
+		if (WIFEXITED(status))
+		{
+			return (WEXITSTATUS(status));
+		}
+
+		return (128);
 	}
 }
