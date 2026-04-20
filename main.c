@@ -1,9 +1,10 @@
 #include "simple.h"
 /**
- *main - Passes the environment to shell_loop
+ *main - Entry of the shell
  *@ac: Argument count
- *@av: Argumetn variables
+ *@av: Argumetn vector
  *@env: The environment
+ *Return: always 0
  */
 int main(int ac, char **av, char **env)
 {

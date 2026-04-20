@@ -1,10 +1,7 @@
 #include "simple.h"
 /**
- *helper functions to make things more simple
- */
-
-/**
  * malloc_error - Handles memory allocation failure
+ * Description: Prints error message than exits the program
  */
 void malloc_error(void)
 {
