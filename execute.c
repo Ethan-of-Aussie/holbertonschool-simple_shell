@@ -37,7 +37,7 @@ int execute_command(char **args, char **env, int line)
 	}
 	else
 	{
-		wait(&status);
+		waitpid(pid, &status, 0);
 		return (WEXITSTATUS(status));
 	}
 }
