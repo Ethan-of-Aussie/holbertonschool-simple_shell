@@ -4,7 +4,7 @@
  *@args: Arguments representing pathing and commands
  *@env: The environment
  */
-void execute_command(char **args, char **env)
+void execute_command(char **args, char **env, int line)
 {
 	pid_t pid;
 	char *pathing;
@@ -31,7 +31,7 @@ void execute_command(char **args, char **env)
 			execve(pathing, args, env);
 			free(pathing);
 		}
-		fprintf(stderr, "%s: command not found\n", args[0]);
+		fprintf(stderr, "./hsh: %d %s: not found\n", line,  args[0]);
 		exit(127);
 	}
 	else
