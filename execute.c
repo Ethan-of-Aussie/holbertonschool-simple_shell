@@ -2,7 +2,7 @@
 /**
  *execute_command - Command execution through the shell
  *@args: Arguments representing pathing and commands
- *@env: The environment 
+ *@env: The environment
  */
 void execute_command(char **args, char **env)
 {
