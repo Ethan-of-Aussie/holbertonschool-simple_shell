@@ -30,7 +30,7 @@ int execute_command(char **args, char **env, int line)
 		}
 		else
 		  {
-		pathing = _path(args[0]);
+		    pathing = _path(args[0], env);
 		if (!pathing)
 		  {
 		fprintf(stderr, "./hsh: %d: %s: not found\n", line,  args[0]);

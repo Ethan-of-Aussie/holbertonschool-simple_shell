@@ -13,7 +13,7 @@ int shell_loop(char **env);
 char **parse_input(char *input);
 int execute_command(char **args, char **env, int line);
 int _builtin(char **args, char **env);
-char *_path(char *cmd);
+char *_path(char *cmd, char **env);
 void malloc_error(void);
 void free_tok(char **toks);
 #endif
