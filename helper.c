@@ -14,12 +14,8 @@ void malloc_error(void)
  */
 void free_tok(char **toks)
 {
-	int i;
-
 	if (!toks)
 	return;
 
-	for (i = 0; toks[i]; i++)
-		free(toks[i]);
 	free(toks);
 }

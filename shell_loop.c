@@ -34,7 +34,7 @@ int shell_loop(char **env)
 		if (_builtin(args, env))
 		{
 			free_tok(args);
-			continue;
+			break;
 		}
 
 		status = execute_command(args, env, line);
