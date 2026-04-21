@@ -17,11 +17,7 @@ int shell_loop(char **env)
 
 		fflush(stdout);
 		if (getline(&input, &input_size, stdin) == -1)
-		{
-			if (!isatty(STDIN_FILENO))
-				break;
-		break;
-		}
+			break;
 		line++;
 
 		args = parse_input(input);
