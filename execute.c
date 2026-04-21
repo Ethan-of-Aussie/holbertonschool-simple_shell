@@ -12,8 +12,8 @@ int execute_command(char **args, char **env, int line)
 
 	if (!args || !args[0])
 		return (0);
-	if (_builtin(args, env))
-	  return (0);
+	// if (_builtin(args, env))
+	//   return (0);
 	pid = fork();
 	if (pid == -1)
 	{
