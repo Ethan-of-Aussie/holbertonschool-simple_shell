@@ -19,6 +19,7 @@ char **parse_input(char *input)
 			i++;
 		if (!input[i])
 			break;
+		token_length = 0;
 		token = &input[i];
 		while (input[i] && input[i] != ' ')
 		{

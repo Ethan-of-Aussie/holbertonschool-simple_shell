@@ -8,7 +8,6 @@ int shell_loop(char **env)
 	char *input = NULL;
 	size_t input_size = 0;
 	char **args;
-	int i;
 	int line = 0, status = 0;
 
 	while (1)
@@ -18,26 +17,18 @@ int shell_loop(char **env)
 
 		fflush(stdout);
 		if (getline(&input, &input_size, stdin) == -1)
-		{
-			free(input);
-			return (status);
-		}
+			break;
 
 		line++;
 
 		args = parse_input(input);
 		if (!args || !args[0])
 		{
-			// if (args)
-			// 	free(args);
 			free_tok(args);
 			continue;
 		}
 		if (_builtin(args, env))
 		{
-			// free(input);
-			// free_tok(args);
-			// exit(status);
 			free_tok(args);
 			continue;
 		}
@@ -45,11 +36,7 @@ int shell_loop(char **env)
 		status = execute_command(args, env, line);
 
 		free_tok(args);
-
-// 		for (i = 0; args[i]; i++)
-// 			free(args[i]);
-// 		free(args);
-// 	}
-// free(input);
-// return (status);
+		}
+free(input);
+return (status);
 }
