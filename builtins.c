@@ -21,12 +21,12 @@ int _builtin(char **args, char **env)
 		return (1);
 	}
 
-	/**if (strcmp(args[0], "exit") == 0)
+	if (strcmp(args[0], "exit") == 0)
 	{
 		free_tok(args);
 		exit(0);
 	}
-	*/
+	
 
 	return (0);
 }
