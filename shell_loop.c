@@ -25,11 +25,6 @@ int shell_loop(char **env)
 		line++;
 
 		args = parse_input(input);
-		if (!isatty(STDIN_FILENO) && (!args || !args[0]))
-		{
-		free_tok(args);
-		break;
-		}
 		if (!args || !args[0])
 		{
 			free_tok(args);
