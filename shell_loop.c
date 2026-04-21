@@ -28,23 +28,28 @@ int shell_loop(char **env)
 		args = parse_input(input);
 		if (!args || !args[0])
 		{
-			if (args)
-				free(args);
+			// if (args)
+			// 	free(args);
+			free_tok(args);
 			continue;
 		}
 		if (_builtin(args, env))
 		{
-			free(input);
+			// free(input);
+			// free_tok(args);
+			// exit(status);
 			free_tok(args);
-			exit(status);
+			continue;
 		}
 
 		status = execute_command(args, env, line);
 
-		for (i = 0; args[i]; i++)
-			free(args[i]);
-		free(args);
-	}
-free(input);
-return (status);
+		free_tok(args);
+
+// 		for (i = 0; args[i]; i++)
+// 			free(args[i]);
+// 		free(args);
+// 	}
+// free(input);
+// return (status);
 }
