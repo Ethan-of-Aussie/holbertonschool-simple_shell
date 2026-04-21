@@ -7,8 +7,9 @@
 int execute_command(char **args, char **env, int line)
 {
 	pid_t pid;
-	char *pathing;
-	int status;
+	char *pathing = NULL;
+	char *path_env = NULL;
+	int status, i;
 
 	if (!args || !args[0])
 		return (0);
@@ -16,7 +17,7 @@ int execute_command(char **args, char **env, int line)
 	  {
 		return (0);
 	  }
-		if (args[0][0] == '/' || args [0][0] == '.')
+	if (strchr(args[0], '/'))
 		{
 		  if (access(args[0], X_OK) != 0)
 		    {
@@ -29,13 +30,26 @@ int execute_command(char **args, char **env, int line)
 		pathing = args[0];
 		}
 		else
-		  {
-		    pathing = _path(args[0], env);
-		if (!pathing)
-		  {
-		fprintf(stderr, "./hsh: %d: %s: not found\n", line,  args[0]);
-		return (127);
-		}
+		{
+			for (i = 0; env[i]; i++)
+			{
+				if (strncmp(env[i], "PATH=", 5) == 0)
+				{
+				path_env = env[i] + 5;
+				break;
+				}
+			}
+				if (!path_env || path_env[0] == '\0')
+				{
+					fprintf(stderr, "./hsh: %d: %s: not found\n", line, args[0]);
+					return (127);
+				}
+			pathing = _path(args[0], env);	
+			if (!pathing)
+			{
+			fprintf(stderr, "./hsh: %d: %s: not found\n", line,  args[0]);
+			return (127);
+			}
 		}
 		pid = fork();
 		if (pid == -1)
