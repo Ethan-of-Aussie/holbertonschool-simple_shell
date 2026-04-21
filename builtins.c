@@ -10,7 +10,10 @@ int _builtin(char **args, char **env)
 	int i;
 
 	if (strcmp(args[0], "exit") == 0)
-	return(1);
+	{
+		free_tok(args);
+		exit(0);
+		// return(1);
 
 	if (strcmp(args[0], "env") == 0)
 	{
