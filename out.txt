@@ -1,0 +1,16 @@
+AUTHORS
+README.md
+builtins.c
+core.58112
+core.58232
+core.58385
+core.58388
+execute.c
+helper.c
+hsh
+main.c
+out.txt
+parse_input.c
+path.c
+shell_loop.c
+simple.h

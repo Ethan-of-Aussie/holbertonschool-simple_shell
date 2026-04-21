@@ -6,35 +6,29 @@
  */
 char **parse_input(char *input)
 {
-	size_t position = 0, token_length = 0, buf_size = MAX_INPUT, i, j;
+	size_t position = 0, buf_size = MAX_INPUT;
 	char **tokens = malloc(buf_size * sizeof(char *));
 	char *token;
 
 	if (!tokens)
 		malloc_error();
 	input[strcspn(input, "\n")] = '\0';
-	for (i = 0; input[i]; )
-	{
-		while (input[i] == ' ')
-			i++;
-		if (!input[i])
-			break;
-		token_length = 0;
-		token = &input[i];
-		while (input[i] && input[i] != ' ')
+		while (*input == ' ' || *input == '\t')
+			input++;
+		if (*input == '\0')
 		{
-			token_length++;
-			i++;
+			tokens[0] = NULL;
+			return (tokens);
 		}
-	tokens[position] = malloc((token_length + 1) * sizeof(char));
-		if (!tokens[position])
-			malloc_error();
-		for (j = 0; j < token_length; j++)
-			tokens[position][j] = token[j];
-	tokens[position][token_length] = '\0';
-	position++;
-	token_length = 0;
-	}
+		token = strtok(input, " \t");
+		
+		while (token)
+		{
+			tokens[position] = token;
+			position++;
+
+			token =strtok(NULL, " \t");
+		}
 tokens[position] = NULL;
 return (tokens);
 }
