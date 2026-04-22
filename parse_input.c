@@ -21,13 +21,13 @@ char **parse_input(char *input)
 			return (tokens);
 		}
 		token = strtok(input, " \t");
-		
+
 		while (token)
 		{
 			tokens[position] = token;
 			position++;
 
-			token =strtok(NULL, " \t");
+			token = strtok(NULL, " \t");
 		}
 tokens[position] = NULL;
 return (tokens);

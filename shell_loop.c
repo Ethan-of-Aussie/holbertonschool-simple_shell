@@ -2,6 +2,7 @@
 /**
  *shell_loop - Runs the main loof of the shell
  *@env: The environment
+ *Return: The exit status of the last command
  */
 int shell_loop(char **env)
 {
@@ -23,9 +24,9 @@ int shell_loop(char **env)
 		args = parse_input(input);
 		if (!args || !args[0])
 		{
-		  if (args)
-			free_tok(args);
-		      if (!isatty(STDIN_FILENO))
+			if (args)
+				free_tok(args);
+			if (!isatty(STDIN_FILENO))
 				continue;
 			continue;
 		}

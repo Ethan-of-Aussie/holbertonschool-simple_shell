@@ -1,9 +1,8 @@
 #include "simple.h"
-
 /**
  *_path - Path Resolution, resolves commands to the full executable path
  *@cmd: The command entered by the user
- *
+ *@env: The environment
  *Return: Either a pointer to a new allocated string holding the resolved
  *full path, or NULL if the command cannot be resolved
  */
@@ -16,7 +15,7 @@ char *_path(char *cmd, char **env)
 
 	if (!cmd)
 		return (NULL);
-	
+
 	for (i = 0; env[i]; i++)
 	{
 		if (strncmp(env[i], "PATH=", 5) == 0)

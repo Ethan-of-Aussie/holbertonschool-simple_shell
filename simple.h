@@ -16,4 +16,6 @@ int _builtin(char **args, char **env);
 char *_path(char *cmd, char **env);
 void malloc_error(void);
 void free_tok(char **toks);
+char *res_path(char *cmd, char **env, int line);
+int run_child(char *pathing, char **args, char **env, int line);
 #endif
