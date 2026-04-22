@@ -64,5 +64,4 @@ $ /bin/ls
 $ exit
 
 .SH AUTHORS
-Ethan Hill
-Sijin Singh
+Ethan and Sijin, Holberton Melbourne
