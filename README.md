@@ -18,7 +18,6 @@ The shell mimics the environment of standard shell "sh", with the goal of having
     * env
 * Handles command parsing and tokenization
 * "Ctrl+d" to exit the shell (EOF)
-* "Ctrl+c" to interrupt current process
 * Forks child processes to execute external commands. Does not run commands when fork is not called
 * Displays appropriate error messages
 * Handles the following edge cases:
