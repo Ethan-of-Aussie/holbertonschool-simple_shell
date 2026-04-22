@@ -10,6 +10,7 @@ void malloc_error(void)
 }
 /**
  *free_tok - Free tokens
+ *@toks: The tokenized item
  *Description: Used to free tokenizations
  */
 void free_tok(char **toks)
